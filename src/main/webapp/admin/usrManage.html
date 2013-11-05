@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户管理</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/cdu4table.css">
+<link rel="stylesheet" type="text/css" href="../css/page.css">
+<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine-zh_CN.js">	</script>
+<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/page.js">	</script>
+<script type="text/javascript" src="../js/user_table.js">	</script>
+</head>
+<body>
+     <ul id="toolbar" class="toolbar">
+        <li>
+          <div class="toolbar_sub">
+               <span class="user_pto li_left" ><img src="../images/user1.png"></span>
+		   <span class="show_username li_right" id="show_username"> 用户，你好！</span>
+          </div>         
+		     <ul >
+		            <li  id="change_password">
+			            <span class="li_left" ><img src="../images/password.png"></span>
+			            <span class="li_right"> 修改密码</span>
+		            </li>
+		            <li id="logout">
+		               <span class="li_left" ><img src="../images/exit.png"></span>
+		               <span class="li_right"> 退出系统</span>
+		            </li>
+		     </ul>
+		     </li>
+	</ul>
+	<div id="header">
+	     <img id="showlogo" src=""  title="logo" >
+	    <div id="slatenav">
+			<!-- 系统菜单根据权限动态生成 -->
+		<ul id="menu">
+		</ul>
+         </div>
+	</div>
+	<div id="bodyer">
+	         <div class="add_user">
+				  <button  class="button" style="margin-top:5px;margin-left:5px;">添加用户</button>
+			 </div>
+			 	<div class="clear"></div>
+			   <div class="serial_table_con">
+			    <table class="main_table" style="margin-bottom:10px;" id="user_table"> 
+					        <thead >
+							     <tr>
+								      <th class="th_one" style="width:35px;">mark</th>
+								        <th style="width:120px;">用户名</th>
+								         <th style="width:100px;">用户类别</th>
+									  <th style="width:100px;">真实姓名</th>
+									    <th style="width:150px;">电话</th>
+								   	  <th style="width:155px;">手机</th>
+									   <th style="width:190px;">邮箱</th>   
+									   <th style="width:70px;">是否屏蔽</th>
+									  <th style="width:35px;">编辑</th>
+									  <th style="width:35px;">删除</th>
+								 </tr>
+							</thead>
+							<tbody id="user_tbody" >
+							</tbody>
+                        </table>			
+			</div>
+			 <div class="clear"></div>
+		    <div id="page_div_usr" class="flickr"></div>
+	</div>
+	<div id="footer">
+	         <div id="showcopyright">
+	         </div>
+	         <div id="showicp">
+	         </div>
+	</div>
+	<!-- 添加新用户表单-->
+	<div class="user_form" id="user_form"  title="添加新用户" style="display: none;">
+		<div class="clear"></div>
+		<form id="add_user_form">
+			<fieldset class="xyz">
+			       <label for="groupid">用户类别：</label> 
+				    <select  id="groupid" name="groupid" class="validate[required]"></select>* <br>
+				  <label for="username">用户名：</label>
+				  <input type="text" name="username" class="validate[required]" id="username"/> * <br>
+				  <label for="password">密码：</label>
+				  <input type="password" name="password" id="password" class="validate[required]"/> *<br>
+				  <label for="repassword">重复密码：</label>
+				  <input type="password" name="repassword"  id="repassword" class="validate[required,equals[password]]"/> *<br>
+				  <label for="real_name">真实姓名:</label>
+				  <input type="text" name="real_name" id="real_name" ><br>
+				  <label for="tel">电话:</label>
+				 <input type="text" name="tel" id="tel" class="validate[custom[phone]]"><br>
+				 <label for="phone">手机:</label>
+				 <input type="text" name="phone" id="phone" class="validate[custom[phone]]"><br>
+				  <label for="email">电子邮箱:</label>
+				 <input type="text" name="email" id="email" class="validate[custom[email]]"><br>
+			</fieldset>
+		</form>
+	</div>
+	<!-- 修改用户表单-->
+	<div id="update_user" title="编辑用户" style="display: none;">
+		<div class="clear"></div>
+		<form id="update_user_form">
+			<fieldset class="xyz">
+			      <input type="hidden" name="userid" id="userid"><br>
+			      <label for="groupid">用户类别：</label> 
+			    <select  id="update_groupid" name="update_groupid" class="validate[required]"></select>* <br>
+			    	 <label for="email">是否屏蔽:</label>
+			    	 <select id="update_isblocked" name="update_isblocked" class="validate[required]">
+			    	     <option value="false">否</option>
+			    	     <option value="true">是</option>
+			    	 </select>*<br>
+				  <label for="real_name">真实姓名:</label>
+				  <input type="text" name="update_real_name" id="update_real_name" ><br>
+				  <label for="tel">电话:</label>
+				 <input type="text" name="update_tel" id="update_tel" class="validate[custom[phone]]">
+				 <label for="phone">手机:</label>
+				 <input type="text" name="update_phone" id="update_phone" class="validate[custom[phone]]"><br>
+				  <label for="email">电子邮箱:</label>
+				 <input type="text" name="update_email" id="update_email" class="validate[custom[email]]">
+				
+			</fieldset>
+		</form>
+	</div>
+	
+	
+</body>
+</html>

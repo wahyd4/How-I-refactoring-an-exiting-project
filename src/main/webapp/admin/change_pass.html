@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+<link rel="stylesheet" type="text/css" href="../css/pass.css">
+<link rel="stylesheet" type="text/css" href="../css/gh-buttons.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine-zh_CN.js">	</script>
+	<script type="text/javascript" src="../js/md5.js"></script>
+	<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/pass.js">	</script>
+</head>
+<body>
+      <form id="change_pass_form" method="post" class="passform"> 
+         <fieldset  class="passform">
+             <legend>修改密码</legend>
+	             <label for="orginal_pass">原始密码：</label> 
+				<input type="password" name="orginal_pass"  id="orginal_pass" class="validate[required]" /> *<br> 
+				<label 	for="new_pass">新密码：</label> 
+				<input type="password" name="new_pass" id="new_pass"  class="validate[required]"/> *<br>
+				<label 	for="re_pass">重新输入新密码：</label> 
+				<input type="password" name="re_pass" id="re_pass"  class="validate[required,equals[new_pass]]"> *<br>
+				<input type="submit" value="提交" class="button">
+         </fieldset>      
+      </form>
+</body>
+</html>

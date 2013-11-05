@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>系统设置</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine-zh_CN.js">	</script>
+<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/page.js">	</script>
+<script type="text/javascript" src="../js/setting.js">	</script>
+
+</head>
+<body>
+      <ul id="toolbar" class="toolbar">
+        <li>
+          <div class="toolbar_sub">
+               <span class="user_pto li_left" ><img src="../images/user1.png"></span>
+		   <span class="show_username li_right" id="show_username"> 用户，你好！</span>
+          </div>         
+		     <ul >
+		            <li id="change_password">
+			            <span class="li_left" ><img src="../images/password.png"></span>
+			            <span class="li_right"> 修改密码</span>
+		            </li>
+		            <li id="logout">
+		               <span class="li_left" ><img src="../images/exit.png"></span>
+		               <span class="li_right"> 退出系统</span>
+		            </li>
+		     </ul>
+		     </li>
+	</ul>
+	<div id="header">
+	     <img id="showlogo" src=""  title="logo" >
+	    <div id="slatenav">
+			<!-- 系统菜单根据权限动态生成 -->
+		<ul id="menu">
+		</ul>
+       </div>
+	</div>
+	<div id="bodyer">
+	        	<form id= "update_setting_form"  class = "z_form"method="post" action="LogServlet"  >
+		        		<fieldset style="margin-left:50px;box-shadow: 0 1px 5px rgba(0, 0, 0,0.3);">
+		        			<legend>系统设置</legend>
+			        		<div class="field_group">
+			        		      <input type="hidden" name="setting_id" id="setting_id">
+				        		<label class="field_title">系统名称</label>
+				        		<input class="field_text  validate[required]" type="text"  name="app_name"  id="app_name" > *<br>
+				        		<label class="field_title">系统logo地址</label>
+				        		<input class="field_text validate[required]" type="text"  name="logo" style="width:600px;" id="logo"> *<br>
+				        			<label class="field_title">ICP备案信息</label>
+				        		<input class="field_text validate[required]" type="text"  name="icp"  id="icp"> *<br>
+				        			<label class="field_title">页面底部版权信息</label>
+				        		<input class="field_text validate[required]" type="text"  name="copyright"  style="width:600px;" id="copyright"> *<br>
+			       	 	 	</div>
+		       	 	 	</fieldset>
+		       	 	 	<fieldset style="margin-left:50px;box-shadow: 0 1px 5px rgba(0, 0, 0,0.3);">
+		        			<legend>其他设置</legend>
+			        		<div class="field_group">
+				        		<label class="field_title">单页信息数量</label>
+				        		<input class="field_text  validate[required,custom[integer],min[10],max[100]] " type="text"  name="singlepage_count" id="singlepage_count"> *<br>
+				        		<label class="field_title">新用户免费天数</label>
+				        		<input class="field_text validate[required,custom[integer],min[1],max[100]] " type="text"  name="default_free_day"  id="default_free_day"> *<br>
+				        			<label class="field_title">搜索结果显示数量</label>
+				        		<input class="field_text validate[required,custom[integer],min[1],max[100]] " type="text"  name="search_result"  id="search_result"> *<br>
+				        			<label class="field_title">首次推送到客户端消息数量</label>
+				        		<input class="field_text validate[required,custom[integer],min[1],max[200]] " type="text"  name="first_push_to_client_count"  id="first_push_to_client_count"> *<br>
+			       	 	 	</div>
+		       	 	 	</fieldset>
+		       	 	 	    <button  class="button  update_setting" >提交更新</button>
+		       	 	</form>
+		      <div class="clear"></div>
+		          <div id="authority_container" class="authorityContainer">
+		                <form class="z_form" id="update_authority">
+		                         <fieldset style="margin-left:50px;box-shadow: 0 1px 5px rgba(0, 0, 0,0.3);" id="auth_con">
+		        			        <legend>权限设置</legend>
+		        			        <input type="hidden" name="update_auth_lists" id="update_auth_lists">
+		        			        <input type="hidden" name="group_to_auth_id" id="group_to_auth_id">
+		        			        <select id="update_auth_group_select" name="update_auth_group_select"></select>
+		        			        <br>
+		        			        <div class="clear"> </div>
+		        			        <div class="auth_con_inner" id="auth_con_inner">
+		        			        </div>
+		        			    </fieldset>
+		        			    <div class="clear">
+		        			    </div>
+		        			           <input type="submit" id="authority_update_submit" class="button"  value="更改权限">
+		                </form>
+		          </div>
+		      <div class="showmore" id="show_authority">显示权限配置</div>
+		  
+	</div>
+	<div id="footer">
+	         <div id="showcopyright">
+	         </div>
+	         <div id="showicp">
+	         </div>
+	</div>
+</body>
+</html>

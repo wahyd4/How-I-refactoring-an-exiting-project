@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>日志管理</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/cdu4table.css">
+<link rel="stylesheet" type="text/css" href="../css/page.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/page.js">	</script>
+<script type="text/javascript" src="../js/log_table.js">	</script>
+
+</head>
+<body>
+     <ul id="toolbar" class="toolbar">
+        <li>
+          <div class="toolbar_sub">
+               <span class="user_pto li_left" ><img src="../images/user1.png"></span>
+		   <span class="show_username li_right"  id="show_username"> 用户，你好！</span>
+          </div>         
+		     <ul >
+		            <li  id="change_password">
+			            <span class="li_left" ><img src="../images/password.png"></span>
+			            <span class="li_right"> 修改密码</span>
+		            </li>
+		            <li id="logout">
+		               <span class="li_left" ><img src="../images/exit.png"></span>
+		               <span class="li_right"> 退出系统</span>
+		            </li>
+		     </ul>
+		     </li>
+	</ul>
+	<div id="header">
+		  <img id="showlogo" src=""  title="logo" >
+		  <div id="slatenav">
+			<!-- 系统菜单根据权限动态生成 -->
+		<ul id="menu">
+		</ul>
+        </div>
+	</div>
+	<div id="bodyer">
+	      	<div class="log_table_con">
+			<table class="main_table" style="margin-bottom: 10px;"
+				id="log_table">
+				<thead id="log_table_head">
+					<tr>
+						<th class="th_one" style="width: 35px;">mark</th>
+						<th style="width: 120px;">日志标注</th>
+						<th style="width: 120px;">日志级别</th>
+						<th style="width: 590px;">类别描述</th>
+						<th style="width: 150px;">时间</th>
+					</tr>
+				</thead>
+				<tbody id="log_tbody">
+				</tbody>
+			</table>
+		</div>
+		<div class="clear"></div>
+		<div id="page_div_log" class="flickr"></div>
+	</div>
+	<div id="footer">
+		    <div id="showcopyright">
+	         </div>
+	         <div id="showicp">
+	         </div>
+	</div>
+</body>
+</html>

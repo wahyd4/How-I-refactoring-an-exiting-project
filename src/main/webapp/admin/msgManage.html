@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信息管理</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/cdu4table.css">
+<link rel="stylesheet" type="text/css" href="../css/page.css">
+<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine-zh_CN.js">	</script>
+<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/page.js">	</script>
+<script type="text/javascript" src="../js/message_table.js">	</script>
+</head>
+<body>
+    <ul id="toolbar" class="toolbar">
+        <li>
+          <div class="toolbar_sub">
+               <span class="user_pto li_left" ><img src="../images/user1.png"></span>
+		   <span class="show_username li_right" id="show_username"> 用户，你好！</span>
+          </div>         
+		     <ul >
+		            <li  id="change_password">
+			            <span class="li_left" ><img src="../images/password.png"></span>
+			            <span class="li_right"> 修改密码</span>
+		            </li>
+		            <li id="logout">
+		               <span class="li_left" ><img src="../images/exit.png"></span>
+		               <span class="li_right"> 退出系统</span>
+		            </li>
+		     </ul>
+		     </li>
+	</ul>
+	<div id="header">
+		<img id="showlogo" src="" title="logo">
+		<div id="slatenav">
+		<!-- 系统菜单根据权限动态生成 -->
+		<ul id="menu">
+		</ul>
+		</div>
+	</div>
+	<div id="bodyer">
+		<div class="add_mess" id="add_mess">
+			<button class="button big icon add" style="margin-top:5px; margin-left:5px;font-size:16px;">添加信息</button>
+		</div>
+		<div class="search_message">
+			<form id="search_msg_form">
+				<input type="text" placeholder="请输入关键字" name="keyword" class="validate[required]" id="search_key_word">
+				 <input type="submit" value="确定" class="button ">
+			</form>
+		</div>
+		<div class="clear"></div>
+		<div class="mess_table_con">
+			<table class="main_table" style="margin-bottom: 10px;"
+				id="mess_table">
+				<thead id="file_table_head">
+					<tr>
+						<th class="th_one" style="width: 28px;">mark</th>
+						<th style="width: 80px;"><select name="look_by_cate" id="look_by_cate"  style="width: 65px;"><option value="0">所有类别</option></select></th>
+						<th style="width: 230px;">标题</th>
+						<th style="width: 320px;">内容</th>
+						<th style="width: 80px; text-align: center;">联系人</th>
+						<th style="width: 100px;">联系电话</th>
+						<th style="width: 95px;" id="file_peizhi">时间</th>
+						<th style="width: 26px;">编辑</th>
+						<th style="width: 26px;">删除</th>
+					</tr>
+				</thead>
+				<tbody id="msg_tbody">
+
+				</tbody>
+			</table>
+		</div>
+		<div class="clear"></div>
+		<div id="page_div_msg" class="flickr"></div>
+	</div>
+	<div id="footer">
+		<div id="showcopyright"></div>
+		<div id="showicp"></div>
+	</div>
+
+	<!-- 添加发布信息表单-->
+	<div class="mess_form" id="mess_form"  title="发布新信息" style="display: none;" >
+		<div class="clear"></div>
+		<form id="save_message">
+			<fieldset class="xyz">
+				<label for="cate">请选择类别：</label> 
+				<select name="cate" id="cate" class="validate[required]" >
+
+				</select> *<br>
+				 <label for="title">标题：</label> 
+				<input type="text" 	name="title" id="title"  class="validate[required]" /> *<br>
+				 <label for="person">联系人：</label>
+				<input type="text" name="person" id="person"  value=""  /><br> 
+				<label	 for="tel">联系电话：</label> 
+				<input type="text" name="tel" id="tel" 	value=""  class="validate[custom[phone]]"/><br> 
+				<label for="content">内容：</label><br>
+				<textarea style="margin-bottom: 5px; width: 450px; height: 200px;"	name="content"  id="mes_content" class="validate[required]" ></textarea> *
+			</fieldset>
+		</form>
+	</div>
+
+	<!-- 更改信息的表格 -->
+	<div class="mess_form_update" id="mess_form_update" title="更新信息"
+		style="display: none;">
+		<div class="clear"></div>
+		<form id="update_message">
+			<fieldset class="xyz">
+				<label for="update_cate">请选择类别：</label> <select name="update_cate"
+					id="update_cate">
+
+				</select> *
+				<br> 
+				<label for="update_title">标题：</label>
+				 <input type="text"
+					name="update_title" id="update_title" class="validate[required]" /> *<br>
+					 <label		for="update_person">联系人：</label>
+					 <input type="text"	name="update_person" id="update_person" value="" /><br> 
+					 <label	for="update_tel">联系电话：</label>
+					  <input type="text" name="update_tel"	id="update_tel" value="" class="validate[custom[phone]]" /><br> 
+					  <input type="hidden"		id="update_message_id" name="message_id"> <label
+					for="update_content">内容：</label><br>
+				<textarea  style="margin-bottom: 5px; width: 450px; height: 200px;" name="update_content" id="update_content"  class="validate[required]" ></textarea>* 
+			
+			</fieldset>
+		</form>
+	</div>
+	<!-- dialog 信息 -->
+	<div id="noresult" style="display: none">对不起，没有结果可供显示！</div>
+
+</body>
+</html>

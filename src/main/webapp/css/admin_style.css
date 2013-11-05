@@ -1,0 +1,424 @@
+@CHARSET "UTF-8";
+/*css reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft Yahei;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset, img {
+	border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+ol, ul {
+	list-style: none;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+q:before, q:after {
+	content: ' ';
+}
+abbr, acronym {
+	border: 0;
+}
+body {
+	font-family: Microsoft Yahei;
+}
+#header,#bodyer,#footer{
+	width: 1000px;
+    position:relative;
+    margin: 5px auto 0;
+}
+
+#header{
+	
+    position:relative;
+    margin: 5px auto 0;
+	margin-top: 3px;
+}
+#bodyer{
+	border:1px solid #bdbcbc;
+	background: #f0f0f0;
+	border-left:none;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0,0.3);
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0,0.3);
+	z-index:1;
+	margin-top: 10px;
+    min-height: 520px;
+    height: auto;
+}
+#footer{
+	margin-top:3px;
+	font-size: 13px;
+    text-align: center;
+  
+}
+.toolbar{
+	list-style-type: none;
+	position:fixed;
+	top:0;
+	right:20px;
+     width: 150px;
+	 list-style:none;  
+	background: #686868;
+	background: rgba(0,0,0,0.7);
+   border-bottom-left-radius:5px;
+   border-bottom-right-radius:5px;
+	z-index: 9999;
+	line-height: 30px;
+	box-shadow: 0px 0px 5px #000;
+	color: white;
+}
+.toolbar  li{
+    float: left;   
+    position: relative !important; <!--如果没有这句代码，li菜单位置就会出现在最左边。-->  
+    padding: 0;   
+    line-height: 35px;   
+	border-top: 1px solid rgb(100,100,90);
+	display: block;
+}
+.toolbar li ul{
+	padding-top: 35px;
+    opacity: 0; 
+    position: absolute;   
+    left: 0;   
+    list-style-type: none;   
+}
+.toolbar li ul:hover{
+	opacity: 1; 
+}
+.toolbar li ul li{
+	cursor: pointer;
+	z-index: 9999;
+	line-height: 30px;
+	box-shadow: 0px 0px 5px #000;
+	height:35px;
+	 width: 150px;
+	 float: left;   
+    padding: 0;   
+    line-height: 35px;   
+	border-top: 1px solid rgb(100,100,90);
+	display: block;
+	background: #686868;
+	background: rgba(0,0,0,0.7);
+   border-bottom-left-radius:5px;
+   border-bottom-right-radius:5px;
+}
+.toolbar li ul li:hover{
+	background: rgb(50,50,50);
+	background: rgba(0,0,0,0.85);
+}
+.toolbar_sub{
+	display: block ; 
+	float:left;
+}
+
+.li_left{
+	float:left;
+}
+.li_right{
+	margin-left: 10px;
+	float:left;
+}
+
+.mess_form form,.mess_form_update form{
+	line-height: 30px;
+	font-size: 17px;
+	font-family: Microsoft Yahei;
+	
+}
+.mess_form form fieldset label{
+	min-width: 100px;
+	
+}
+
+.cate_form form{
+	line-height: 30px;
+	font-size: 17px;
+	font-family: Microsoft Yahei;
+}
+
+.xyz label{
+	 margin-top: 5px;
+      width:110px;
+      display:block; 
+      clear:left; 
+      float:left; 
+     text-align: left;
+     line-height: 28px;
+	 
+}
+.xyz input{
+	 margin-top: 6px;
+	 line-height: 24px;
+}
+.clear{
+	clear: both;
+}
+#title,#update_title{
+	width:446px;
+}
+.serial_count{
+	width:40px;
+	height: 40px;
+	
+}
+.serial_loading{
+	margin-left: 170px;
+	margin-top:10px;
+}
+.serial_submit{
+	margin-top:20px;
+	margin-left: 150px;
+}
+.user_cancel,.user_submit{
+	 margin-top: 30px;
+}
+.user_cancel{
+	margin-left:60px;
+}
+
+.mess_category{
+	font-weight: bold;
+	color: blue;
+}
+.add_mess{
+	float: left;
+	margin-left:0px;
+}
+.search_message{
+	font-family: Microsoft Yahei;
+	float:right;
+	margin-top:20px;
+	margin-right:0;
+	font-size:15px;
+}	
+.search_message input[type='text']{
+	border-radius: 5px;
+	border:1px solid rgb(50,50,50);
+}
+
+.add_serials{
+	float: left;
+	margin-left:0px;
+}
+.search_serial{
+	font-family: Microsoft Yahei;
+	float:right;
+	margin-top:5px;
+	
+	margin-right:0;
+	font-size:15px;
+}
+.search_serial input[type='text']{
+	border-radius: 5px;
+	border:1px solid rgb(50,50,50);
+}
+
+.mess_table_con{
+	min-height:430px;
+}
+.update_setting{
+	clear:both;
+    top:6px;
+	left:460px;
+}
+.showmore{
+	margin: 10px;
+	height:22px;
+	text-align: center;
+	font-family: "Microsoft Yahei";
+	border:1px solid #87C1FA;
+}
+.showmore:hover{
+	background:#87C1FA;
+	cursor:pointer;
+}
+.authorityContainer{
+	display: none;
+	min-height: 150px;
+}
+.auth_checkbox{
+	margin-bottom: 3px;
+	margin-left:30px;
+	float:left;
+	position: relative;
+	width:180px;
+}
+#authority_update_submit{
+	margin-left:450px;
+}
+
+
+/* ---------------------- Blueslate nav ---------------------- */
+ #slatenav {
+ 	width:1000px;
+ 	margin: 3px auto 0;
+	position: relative;
+	display: block;
+	height: 42px;
+	font-size: 16px;
+	font-weight: bold;
+	background: transparent url(images/blueslate_background.gif) repeat-x top left;
+	font-family: Arial, Verdana, Helvitica, sans-serif;
+	text-transform: uppercase;
+}
+ #slatenav ul {
+	margin: 0px;
+	padding: 0;
+	list-style-type: none;
+	width: auto;
+}
+#slatenav ul li {
+	display: block;
+	float: left;
+	margin: 0 1px 0 0;
+}
+#slatenav ul li a {
+	display: block;
+	float: left;
+	color: #D5F1FF;
+	text-decoration: none;
+	padding: 14px 22px 0 22px;
+	height: 28px;
+}
+ #slatenav ul li a:hover,  #slatenav ul li a.current {
+	color: #fff;
+	background: transparent url(images/blueslate_backgroundOVER.gif) no-repeat top center;
+}
+/* ---------------------- END Blueslate nav ---------------------- */
+
+.button { 
+    position: relative; 
+    overflow: visible; 
+    display: inline-block; 
+    padding: 0.5em 1em; 
+    border: 1px solid #d4d4d4; 
+    margin: 0;
+    text-decoration: none; 
+    font-size:13px ; 
+    font-weight: bold;
+    color: white; 
+    white-space: nowrap; 
+    cursor: pointer; 
+    outline: none; 
+    background-color: #3C8DDE;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    -o-background-clip: padding-box; 
+    /*background-clip: padding-box;*/ /* commented out due to Opera 11.10 bug */
+    -webkit-border-radius: 0.2em; 
+    -moz-border-radius: 0.2em; 
+    border-radius: 0.2em; 
+    /* IE hacks */
+    zoom: 1; 
+    *display: inline; 
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    border-color: #3072b3;
+    border-bottom-color: #2a65a0;
+    text-decoration: none; 
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3); 
+    color: #fff; 
+    background-color: #3C8DDE;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -o-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+}
+.button:active,
+.button.active {
+    border-color: #2a65a0;
+    border-bottom-color: #3884CF;
+    background-color: #3072b3;
+ }
+/* overrides extra padding on button elements in Firefox */
+.button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/*~~~~~~~~~~~~~~~~~~~*/
+.z_form{
+	
+	font-size: 12px;
+	text-transform: capitalize;
+	color: #000;
+}
+.z_form input{
+		margin-top:10px;
+}
+.z_form fieldset{
+	
+	clear: both;
+	padding: 2px;
+	margin: 5px;
+	margin-right:30px;
+	background: #F2F6FA;
+	border: 1px solid #C4D3EA;
+
+	
+}
+.z_form legend{
+
+	margin: 0 0;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #000;
+	
+}
+.field_group{
+	
+	margin: 8px;
+	color: #314C70
+	
+}
+.field_title{
+
+	float: left;
+	width: 120px;
+	margin-top: 9px;
+	margin-left:30px;
+	text-align: center;
+	font-size: 14px;
+	color: #555;
+	
+}
+.field_text{
+
+	border:1px solid #bdbcbc;
+	background-color: white;
+	color: #666;
+	margin-left: 15px;
+	padding: 5px;
+	display: inline-block;
+	border-radius:2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	vertical-align: middle;
+	width:300px;
+	
+}

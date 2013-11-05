@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>激活码管理</title>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css"
+	href="../css/hot-sneaks/jquery-ui-1.8.16.custom.css">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/cdu4table.css">
+<link rel="stylesheet" type="text/css" href="../css/page.css">
+<link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+<script type="text/javascript" src="../js/jquery-1.6.1.js">	</script>
+<script type="text/javascript"  src="../js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="../js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../js/page.js">	</script>
+<script type="text/javascript" src="../js/jquery.form.js">	</script>
+<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+<script type="text/javascript" src="../js/main.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js">	</script>
+<script type="text/javascript" src="../js/jquery.validationEngine-zh_CN.js">	</script>
+<script type="text/javascript" src="../js/jquery.iphone-switch.js">	</script>
+<script type="text/javascript" src="../js/serial_table.js">	</script>
+
+</head>
+<body>
+      <ul id="toolbar" class="toolbar">
+        <li>
+          <div class="toolbar_sub">
+               <span class="user_pto li_left" ><img src="../images/user1.png"></span>
+		   <span class="show_username li_right" id="show_username"> 用户，你好！</span>
+          </div>         
+		     <ul >
+		            <li  id="change_password">
+			            <span class="li_left" ><img src="../images/password.png"></span>
+			            <span class="li_right"> 修改密码</span>
+		            </li>
+		            <li id="logout">
+		               <span class="li_left" ><img src="../images/exit.png"></span>
+		               <span class="li_right"> 退出系统</span>
+		            </li>
+		     </ul>
+		     </li>
+	</ul>
+	<div id="header">
+	    <img id="showlogo" src=""  title="logo" >
+	   <div id="slatenav">
+			<!-- 系统菜单根据权限动态生成 -->
+		<ul id="menu">
+		</ul>
+        </div>
+	</div>
+	<div id="bodyer">
+	      <div class="add_serials">
+				  <button class="button" style="margin-top:5px;margin-left:5px;font-size:15px;">批量生成激活码</button>
+			 </div>
+			 <div class="search_serial">
+			      <form id="search_ser_form">
+			          <input type="text" palceholder="请输入关键字" name="keyword" id="search_ser_key" class="validate[required]" >
+			          <input type="submit" value="确定" class="button" style="margin-top:5px;margin-right:5px;">
+			      </form>
+			</div>
+			<div class="clear"></div>
+			   <div class="serial_table_con">
+			    <table class="main_table" style="margin-bottom:10px;" id="serial_table"> 
+					        <thead >
+							     <tr>
+								      <th class="th_one" style="width:50px;">mark</th>
+								        <th style="width:250px;">激活码</th>
+									  <th style="width:220px;">使用状态</th>
+									   <th style="width:220px;">到期时间</th>
+									   <th style="width:220px;">屏蔽状态</th>
+									  <th style="width:30px;">编辑</th>
+								 </tr>
+							</thead>
+							<tbody id="serial_tbody" >
+							</tbody>
+                        </table>			
+			</div>
+			<div class="clear"> </div>
+		    <div id="page_div_ser" class="flickr"></div>
+	</div>
+	<div id="footer">
+	        <div id="showcopyright">
+	         </div>
+	         <div id="showicp">
+	         </div>
+	</div>
+	
+	<!-- 添加激活码表单-->
+	<div class="serials_form" id="serials_form" title="批量生成激活码" style="display: none;">
+		<div class="clear">
+		</div>
+		<form id="get_serial">
+				 <label for="title">请输入需要的数量：*</label>
+				 <input id="count" type="text" name="serial_count"  class="serial_count validate[required,custom[integer],min[1],max[10]] " /> <br>
+				  <img src="../images/loading.gif" alt="loading" class="serial_loading"  style="display:none"/><br>
+				
+		</form>
+	</div>
+		<!-- 更新一个激活码信息 -->
+
+		     <form id="update_serial_form"  style="display:none;">		
+				 <input type="text"  name="used"  id="serial_is_used" /><br>
+				 <input type="text" name="blocked"  id="serial_blocked" /><br>
+				<input type="text" name="avail_to" id="serial_avail_to"><br>
+				<input type="text" name="serial_id" id="serial_id"><br>
+		         <input type="submit" >
+	       	</form>
+	       	
+	       	<!-- dialog 信息 -->
+	<div id="noresult" style="display:none">对不起，没有结果可供显示！</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 配置数据库相关连接
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName">
+	<value>com.mysql.jdbc.Driver</value>
+	</property>
+	<property name="url">
+	<value>jdbc:mysql://localhost/transpush</value>
+	</property>
+	<property name="username">
+	<value>root</value>
+	</property>
+	<property name="password">
+	<value>root</value>
+	</property>
+
+	</bean>
+	-->
+	<!-- 配置数据库连接池-->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/transpush"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value=""></property>
+		<property name="maxPoolSize" value="100"></property>
+		<property name="minPoolSize" value="1"></property>
+		<property name="initialPoolSize" value="5"></property>
+		<property name="maxIdleTime" value="20"></property>
+		<property name="checkoutTimeout" value="5000"></property>
+	</bean>
+	<bean id="sessionFactory"
+	class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<!-- 设置hibernate相关属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="generate_statistics">true</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.messpush.model.bean.Category</value>
+				<value>com.messpush.model.bean.Log</value>
+				<value>com.messpush.model.bean.Message</value>
+				<value>com.messpush.model.bean.Serials</value>
+				<value>com.messpush.model.bean.User</value>
+				<value>com.messpush.model.bean.UserFault</value>
+				<value>com.messpush.model.bean.Setting</value>
+				<value>com.messpush.model.bean.UserGroup</value>
+				<value>com.messpush.model.bean.Authority</value>
+				<value>com.messpush.model.bean.GroupToAuthority</value>
+				<value>com.messpush.model.bean.TempMessage</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 注册Dao -->
+	<bean id="UserDao" class="com.messpush.model.daoimp.UserDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CategoryDao" class="com.messpush.model.daoimp.CategoryDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="LogDao" class="com.messpush.model.daoimp.LogDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MessageDao" class="com.messpush.model.daoimp.MessageDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SerialDao" class="com.messpush.model.daoimp.SerialDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserFaultDao" class="com.messpush.model.daoimp.UserFaultDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SettingDao" class="com.messpush.model.daoimp.SettingDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserGroupDao" class="com.messpush.model.daoimp.UserGroupDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="AuthorityDao" class="com.messpush.model.daoimp.AuthorityDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GroupToAuthorityDao" class="com.messpush.model.daoimp.GroupToAuthorityDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TempMessageDao" class="com.messpush.model.daoimp.TempMessageDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	
+</beans>

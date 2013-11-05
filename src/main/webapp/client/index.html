@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>信息系统</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" href="../css/style4mobile.css" />
+	<link rel="stylesheet" href="../css/jqm-docs.css" />
+	<link rel="stylesheet" href="../css/jquery.mobile-1.0.min.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+      
+	<script src="../js/jquery-1.6.1.js"></script>
+	<script src="../js/jquery.xml2json.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.js">	</script>
+	<script type="text/javascript" src="../js/jquery.mobile-1.0.min.js"></script>
+	<script type="text/javascript" src="../js/zhao_tools.js"></script>
+	<script src="../js/artdialog/artDialog.js?skin=chrome"></script>
+    <script type="text/javascript" src="../js/clientindex.js"></script>
+
+<script type="text/javascript">
+//滚动插件
+(function($){
+$.fn.extend({
+        Scroll:function(opt,callback){
+                //参数初始化
+                if(!opt) var opt={};
+                var _this=this.eq(0).find("ul:first");
+                var        lineH=_this.find("li:first").height(), //获取行高
+                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                        speed=opt.speed?parseInt(opt.speed,10):500, //卷动速度，数值越大，速度越慢（毫秒）
+                        timer=opt.timer?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                if(line==0) line=1;
+                var upHeight=0-line*lineH;
+                //滚动函数
+                scrollUp=function(){
+                        _this.animate({
+                                marginTop:upHeight
+                        },speed,function(){
+                                for(i=1;i<=line;i++){
+                                        _this.find("li:first").appendTo(_this);
+                                }
+                                _this.css({marginTop:0});
+                        });
+                }
+                //鼠标事件绑定
+                _this.hover(function(){
+                        clearInterval(timerID);
+                },function(){
+                        timerID=setInterval("scrollUp()",timer);
+                }).mouseout();
+        }        
+})
+})(jQuery);
+
+$(document).ready(function(){
+     //   $(".main").Scroll({line:2,speed:100,timer:1000});
+});
+</script>
+</head>
+<body>
+
+	<div data-role="page" data-theme="E">
+			<div data-role="header" data-position="inline" style="position:fixed;z-index:100;" data-theme="b">
+				<a  data-icon="refresh" id="refresh_home" >手动刷新</a>
+				<h2>信息系统</h2>
+				<a  id="add_mess"  data-icon="plus" data-role="button">发布信息</a>
+			</div>
+
+			<div class = "display_content" id="information" ></div>
+			<div class="main" style="margin-top:40px;margin-bottom:30px;">
+				<ul data-role="listview" data-theme="c" data-filter="false"
+					id="display_information">
+                    
+				</ul>
+		  </div>
+		
+		<div data-role="footer" id="footer" style="position:fixed;z-index:100;bottom:0;" data-theme="b">
+		     
+			<h4>© Copyright CDU 2011</h4>
+		</div>
+	</div>
+   <div id="login" style="display:none">
+       <form id="do_login_form" method="post">
+	          <input type="password" name="serial" id="serial" placeholder="请输入激活码"><br>
+	          <span id="warn_mess"></span><br>
+	          <input type="submit" value="确定">
+	     </form>
+   </div>
+   <div id="new_mess" style="display:none">
+          <form id="new_mess_form" >
+             <input type="hidden" name="new_mess_serial" id="new_mess_serial" ><br> 
+	          <input type="text" name="title" id="title" placeholder="请输入标题"><br>
+	          <input type="text" name="person" id="person" placeholder="请输入联系人"><br>
+	          <input type="text" name="tel" id="tel" placeholder= "请输入电话"><br>
+	         <textarea  placeholder="请输入内容" id="content" name="content">
+	         </textarea><br>
+	          <span id="warn_new_mess">请至少填写标题和内容！</span><br>
+	          <input type="submit" value="提交">
+	     </form>
+   </div>
+</body>
+</html>

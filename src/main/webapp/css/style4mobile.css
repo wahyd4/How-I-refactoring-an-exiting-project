@@ -1,0 +1,28 @@
+html{
+	width:100%;
+	padding:0;
+	margin:0;
+}	
+
+
+#footer{
+	margin-top:20px;
+	}
+#do_login_form,#new_mess_form{
+	line-height: 30px;
+	
+}
+#do_login_form input,#new_mess_form input{
+	margin-top: 5px;
+	width:180px;
+}
+
+#do_login_form input[type='submit'],#new_mess_form input[type='submit']{
+	width: 60px;
+	float: right;
+}
+#new_mess_form textarea{
+	margin-top: 5px;
+	width:180px;
+	height: 100px;
+}
