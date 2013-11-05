@@ -3,6 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'cargo'
+apply plugin: 'checkstyle'
 
 group = 'com.messpush'
 version = '0.0.1-SNAPSHOT'
@@ -119,3 +120,4 @@ cargo {
         }
     }
 }
+
