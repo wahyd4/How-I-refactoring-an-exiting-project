@@ -7,8 +7,7 @@ import com.messpush.model.bean.Setting;
 import com.messpush.model.dao.SettingDao;
 
 /**
- * 为了是常量的值是从数据库中读取的<br>
- * 需要在用户登录的时候对该类进行实例化
+ *
  * @author Junv
  *
  */
