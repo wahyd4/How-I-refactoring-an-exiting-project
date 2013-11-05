@@ -98,6 +98,10 @@ jettyRun {
     contextPath '/MessagePush'
 }
 
+javadoc {
+    options.encoding = "UTF-8"
+}
+
 cargo {
     containerId = 'jetty8x'
     port = 8080
