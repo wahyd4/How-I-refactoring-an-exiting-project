@@ -99,7 +99,7 @@ jettyRun {
 }
 
 cargo {
-    containerId = 'tomcat7x'
+    containerId = 'jetty8x'
     port = 8080
 
     deployable {
@@ -108,6 +108,10 @@ cargo {
     }
 
     local {
-        homeDir = file('/Users/twer/Documents/lib/apache-tomcat-7.0.25')
+        installer {
+            installUrl = 'http://mirrors.yun-idc.com/eclipse//jetty/stable-8/dist/jetty-distribution-8.1.13.v20130916.tar.gz'
+            downloadDir = file("$buildDir/download")
+            extractDir = file("$buildDir/extract")
+        }
     }
 }
